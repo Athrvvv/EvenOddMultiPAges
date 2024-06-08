@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Even Odd App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .nav-links {
+            margin-bottom: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #007bff;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        
+        label {
+            font-size: 18px;
+        }
+        
+        input[type="number"] {
+            padding: 10px;
+            width: 200px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+        }
+        
+        input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        
+        h2 {
+            color: #343a40;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+        </div>
+        <h1>Even Odd App</h1>
+        <form onsubmit="check(event)">
+            <label for="num">Enter the Number :</label>
+            <input type="number" placeholder="Enter the number" id="num" />
+            <br><br>
+            <input type="submit" value="Check" />
+        </form>
+        <h2 id="msg"></h2>
+    </div>
+    <script>
+        function check(event) {
+            event.preventDefault();
+            let num = document.getElementById("num");
+            let msg = document.getElementById("msg");
+            if (num.value === "") {
+                alert("You did not enter a number");
+                msg.innerHTML = "";
+                num.focus();
+                return;
+            }
+            let n = parseInt(num.value);
+            let ans = n % 2 === 0 ? "Even" : "Odd";
+            msg.innerHTML = "Number is --> " + ans;
+        }
+    </script>
+</body>
+
+</html>
